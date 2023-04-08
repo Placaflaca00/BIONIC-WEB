@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Output</title>
+</head>
+<body class="fullscreen-body">
+  <!-- <button class="read-aloud-btn" onclick="readAloud()">Read Aloud</button> -->
+  <div id="outputText2"></div>
+  <script>
+    function calculateFontSize(wordCount) {
+  if (wordCount <= 100) {
+    return '40px';
+  } else if (wordCount <= 500) {
+    return '36px';
+  } else {
+    return '26px';
+  }
+}
+
+function adjustFontSize() {
+  const text = document.getElementById('outputText2').innerText;
+  const words = text.split(/\s+/);
+  const wordCount = words.length > 0 && words[0] !== '' ? words.length : 0;
+
+  if (window.innerWidth > 768) { // Apply the font size only for non-mobile devices
+    document.getElementById('outputText2').style.fontSize = calculateFontSize(wordCount);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const outputText = localStorage.getItem('outputText');
+  document.getElementById('outputText2').innerHTML = outputText.replaceAll('\n', '<br>').replaceAll('  ', '&nbsp; ');
+  adjustFontSize();
+});
+
+    function detectLanguage(text) {
+  const langRegex = {
+    en: /\b(?:a|an|the|in|on|at|for|with|about|is|and|of|to|as)\b/i,
+    es: /\b(?:el|la|los|las|un|una|unos|unas|en|de|con|para|sobre|por|y)\b/i,
+    fr: /\b(?:le|la|les|un|une|des|en|dans|sur|avec|pour|de|et|à)\b/i,
+    de: /\b(?:der|die|das|in|auf|an|für|mit|über|ist|und|von|zu|als)\b/i
+  };
+
+  for (const lang in langRegex) {
+    if (langRegex[lang].test(text)) {
+      return lang;
+    }
+  }
+
+  return 'en'; // default language
+}
+
+function readAloud() {
+  const text = document.getElementById('outputText2').innerText;
+  const utterance = new SpeechSynthesisUtterance(text);
+
+  const language = detectLanguage(text);
+  const langMap = { en: 'en-US', es: 'es-ES', fr: 'fr-FR', de: 'de-DE' };
+  utterance.lang = langMap[language];
+
+  speechSynthesis.speak(utterance);
+}
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const outputText = localStorage.getItem('outputText');
+      const words = outputText.trim().split(/\s+/);
+      const wordCount = words.length > 0 && words[0] !== "" ? words.length : 0;
+      
+      const fontSize = calculateFontSize(wordCount);
+      document.getElementById('outputText2').style.fontSize = fontSize;
+      
+      document.getElementById('outputText2').innerHTML = outputText.replaceAll('\n', '<br>').replaceAll('  ', '&nbsp; ');
+    });
+  </script>
+</body>
+</html>
