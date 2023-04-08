@@ -1,0 +1,287 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url("fontawesome-all.min.css");
+
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+header {
+  background-color: #2e2e2e;
+  padding: 20px;
+  text-align: left;
+  color: white;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.bold-high {
+  font-weight: 900;
+}
+
+.bold-medium {
+  font-weight: 700;
+}
+
+.bold-low {
+  font-weight: 500;
+}
+
+/* Main Layout */
+main {
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+section {
+  flex: 1;
+  margin-right: 10px;
+  margin-bottom: 2em;
+}
+
+section:last-child {
+  margin-right: 0;
+}
+
+/* Textarea Styles */
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  font-size: 18px;
+  resize: none;
+  height: 500px;
+  border: 1px solid #ccc;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+p.output {
+  width: 100%;
+  background-color: white;
+  height: 500px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin-top: 8px;
+  white-space: pre-wrap;
+  overflow-y: auto;
+}
+
+/* Info Section */
+.info-section {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h3 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.info-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Footer */
+#footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5em;
+  background: #2e2e2e;
+  color: rgba(185, 186, 187, 0.5);
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.follow-me {
+  font-weight: bold;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#footer a.icon {
+  color: inherit;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+#footer a.icon:hover {
+  color: #b9babb;
+}
+
+.copyright {
+  font-weight: bold;
+}
+
+/* Button */
+.copy-btn {
+  background-color: #39454b;
+  border: none;
+  color: #b9babb;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0.5em 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+  background-color: #b9babb;
+  color: #39454b;
+}
+
+/* Input Styles */
+input[type="file"] {
+  display: block;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #39454b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.download-button:hover {
+  background-color: #2c353a;
+}
+
+/* PDF Upload Section */
+.pdf-upload-section {
+  padding: 1em;
+  background-color: #f0f0f0;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.pdf-upload-section h2 {
+  margin-top: 0;
+}
+
+.pdf-upload-section input[type="file"] {
+  display: block;
+  margin-top: 0.5em;
+}
+
+.download-btn {
+  margin-top: 1em;
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
+.word-counter {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* Fullscreen */
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen p {
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+.fullscreen-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fullscreen-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Fullscreen Responsive Styles */
+@media screen and (max-width: 767px) {
+  .read-aloud-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 480px) {
+  #footer a.icon {
+    margin: 0 0.25em;
+  }
+
+  #footer {
+    flex-direction: column;
+  }
+
+  .follow-me, .copyright {
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #outputText2 {
+    max-width: 100%;
+    font-size: 18px;
+  }
+}
+
